@@ -235,10 +235,10 @@ isPrime(17);
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  return(Number(value, def));
 }
-
+toNumber(42, 0);
 /**
  * Returns the cube of the given number.
  *
@@ -250,10 +250,10 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+ return(Math.pow(num, 3));
 }
-
+getCube(3);
 /**
  * Returns the Fibonacci number located at the index position.
  *
@@ -267,9 +267,12 @@ function getCube(/* num */) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index ) {
+
+  return index <= 1 ? index : getFibonacciNumber(index - 1) + 
+  getFibonacciNumber(index - 2);
 }
+getFibonacciNumber(10);
 
 /**
  * Returns the sum of all numbers from 1 to n.
@@ -282,9 +285,10 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  return n * (n + 1) / 2;
 }
+getSumToN(10);
 
 /**
  * Returns the sum of the digits of a given number.
@@ -297,10 +301,17 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  var figures = "" + num;
+  var sum = 0;
+
+  for (var i = 0; i < figures.length; i++) 
+   sum += +figures[i];
+
+  return sum;
 }
 
+getSumOfDigits(123);
 /**
  * Returns true if the given number is a power of two, false otherwise.
  *
@@ -312,10 +323,10 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num ) {
+ return(toString(2).replace(/0/g, '') == 1);
 }
-
+isPowerOfTwo(15);
 /**
  * Returns the sine of a number.
  *
@@ -326,9 +337,10 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return(Math.sin(num));
 }
+getSine(Math.PI / 2);
 
 /**
  * Returns a string representation of a number in a specified base (radix).
@@ -341,9 +353,10 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return(number.toString();
 }
+numberToStringInBase(255,16);
 
 /**
  * Returns a string representation of a number in exponential notation.
@@ -355,9 +368,10 @@ function numberToStringInBase(/* number, base */) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential( number, fractionDigits) {
+ return(number.toExponential(fractionDigits);
 }
+toExponential(12345, 2);
 
 /**
  * Returns a string representation of a number in fixed-point notation.
@@ -370,9 +384,10 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  throw new Error(number.toFixed(fractionDigits) );
 }
+toFixed(12345, 2);
 
 /**
  * Returns a string representation of a number in normal (fixed-point or exponential)
